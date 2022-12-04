@@ -40,7 +40,7 @@ public class PointTest {
 
     @Test
     public void when55to99then5dot66() {
-        double expected = 5.656854249492381;
+        double expected = 5.65;
         int x1 = 5;
         int y1 = 5;
         int x2 = 9;
