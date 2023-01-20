@@ -14,23 +14,19 @@ public class JavaNameValidator {
     }
 
     public static boolean isNameValid(String name) {
-        boolean valid = true;
-        if (name.isEmpty()) {
-            valid = false;
-        } else {
-            if (Character.isUpperCase(name.charAt(0)) || Character.isDigit(name.charAt(0))) {
-                valid = false;
-            }
-            for (int i = 0; i < name.length(); i++) {
+            if (name.isEmpty() || Character.isUpperCase(name.charAt(0)) || Character.isDigit(name.charAt(0))) {
+                return false;
+            } else {
+            for (int i = 1; i < name.length(); i++) {
                 int code = name.codePointAt(i);
                 if (!isSpecialSymbol(code)
                         && !isUpperLatinLetter(code)
                         && !isLowerLatinLetter(code)
                         && !Character.isDigit(name.charAt(i))) {
-                    valid = false;
+                    return false;
                 }
             }
         }
-        return valid;
+        return true;
     }
 }
